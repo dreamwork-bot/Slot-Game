@@ -9,7 +9,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         :root {
@@ -25,37 +25,37 @@
 
         body {
             background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
-            color: var(--light);
+            color: #333;
             min-height: 100vh;
-            padding-bottom: 50px;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
             padding: 20px;
         }
 
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
         header {
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: var(--primary);
             padding: 15px 0;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-            position: sticky;
-            top: 0;
-            z-index: 100;
         }
 
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 20px;
         }
 
         .logo {
             font-size: 28px;
             font-weight: bold;
-            color: var(--light);
+            color: white;
             display: flex;
             align-items: center;
         }
@@ -74,7 +74,7 @@
         }
 
         nav ul li a {
-            color: var(--light);
+            color: white;
             text-decoration: none;
             padding: 8px 15px;
             border-radius: 4px;
@@ -134,7 +134,7 @@
         }
 
         .game-lobby {
-            margin-top: 30px;
+            padding: 20px;
         }
 
         .section-title {
@@ -142,6 +142,7 @@
             margin-bottom: 20px;
             padding-bottom: 10px;
             border-bottom: 2px solid var(--secondary);
+            color: var(--primary);
         }
 
         .games-grid {
@@ -152,11 +153,12 @@
         }
 
         .game-card {
-            background: rgba(0, 0, 0, 0.6);
+            background: white;
             border-radius: 10px;
             overflow: hidden;
             transition: transform 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid #eee;
         }
 
         .game-card:hover {
@@ -177,10 +179,11 @@
         .game-title {
             font-size: 20px;
             margin-bottom: 10px;
+            color: var(--primary);
         }
 
         .game-description {
-            color: #ccc;
+            color: #666;
             margin-bottom: 15px;
             font-size: 14px;
         }
@@ -201,11 +204,11 @@
         }
 
         .game-container {
-            background: rgba(0, 0, 0, 0.8);
+            background: white;
             border-radius: 10px;
             padding: 20px;
             margin-top: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .game-ui {
@@ -264,7 +267,7 @@
         }
 
         .modal-content {
-            background-color: var(--dark);
+            background-color: white;
             padding: 30px;
             border-radius: 10px;
             width: 90%;
@@ -300,11 +303,11 @@
         }
 
         .admin-panel {
-            margin-top: 30px;
+            padding: 20px;
         }
 
         .admin-section {
-            background: rgba(0, 0, 0, 0.6);
+            background: #f8f9fa;
             border-radius: 10px;
             padding: 20px;
             margin-bottom: 20px;
@@ -318,10 +321,11 @@
         }
 
         .stat-card {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.8);
             padding: 15px;
             border-radius: 8px;
             text-align: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
         }
 
         .stat-value {
@@ -372,30 +376,6 @@
 
         th {
             background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            nav ul {
-                margin-top: 15px;
-                justify-content: center;
-            }
-            
-            .user-info {
-                margin-top: 15px;
-            }
-            
-            .games-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .controls {
-                flex-direction: column;
-            }
         }
 
         /* Game-specific styles */
@@ -458,322 +438,784 @@
             background-color: #ffd700;
             border-radius: 50%;
         }
+
+        /* Login form */
+        .login-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .login-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: 5px;
+            color: white;
+            background-color: var(--success);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            display: none;
+            z-index: 1001;
+        }
+
+        .notification.error {
+            background-color: var(--danger);
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                justify-content: center;
+            }
+            
+            .user-info {
+                margin-top: 15px;
+            }
+            
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .controls {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container header-content">
-            <div class="logo">Slot<span>Games</span>Arena</div>
-            <nav>
-                <ul>
-                    <li><a href="#" class="active">Home</a></li>
-                    <li><a href="#">Games</a></li>
-                    <li><a href="#">Promotions</a></li>
-                    <li><a href="#">Support</a></li>
-                </ul>
-            </nav>
-            <div class="user-info">
-                <div class="balance">Balance: $100.00</div>
-                <button class="btn btn-primary" id="depositBtn">Deposit</button>
-                <button class="btn btn-warning" id="withdrawBtn">Withdraw</button>
-                <button class="btn btn-danger" id="logoutBtn">Logout</button>
-            </div>
-        </div>
-    </header>
-
     <div class="container">
-        <div class="game-lobby">
-            <h2 class="section-title">Game Lobby</h2>
-            <div class="games-grid">
-                <div class="game-card">
-                    <div class="game-image" id="frogGame">
-                        <div class="frog"></div>
-                        <div class="lily-pad" style="left: 150px;"></div>
-                        <div class="lily-pad" style="left: 250px;"></div>
-                        <div class="lily-pad" style="left: 350px;"></div>
-                    </div>
-                    <div class="game-details">
-                        <h3 class="game-title">Frog Pond Jump</h3>
-                        <p class="game-description">Guide the frog across lily pads. Each pad increases your multiplier, but some may sink!</p>
-                        <a href="#play-frog" class="play-btn">Play Now</a>
-                    </div>
+        <!-- Login Screen (initially shown) -->
+        <div id="loginScreen" class="login-container">
+            <h2 style="text-align: center; margin-bottom: 20px;">Slot Games Arena Login</h2>
+            <div class="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter your username">
                 </div>
-
-                <div class="game-card">
-                    <div class="game-image" id="rocketGame">
-                        <div class="rocket"></div>
-                    </div>
-                    <div class="game-details">
-                        <h3 class="game-title">Rocket Banana</h3>
-                        <p class="game-description">Watch the rocket banana soar! The higher it goes, the bigger your multiplier.</p>
-                        <a href="#play-rocket" class="play-btn">Play Now</a>
-                    </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password">
                 </div>
-
-                <div class="game-card">
-                    <div class="game-image" id="caveGame">
-                        <div class="miner"></div>
-                        <div class="gold" style="left: 200px; top: 100px;"></div>
-                        <div class="gold" style="left: 300px; top: 150px;"></div>
-                    </div>
-                    <div class="game-details">
-                        <h3 class="game-title">Treasure Cave Run</h3>
-                        <p class="game-description">Help the miner collect gold in the cave. Go deeper for higher multipliers!</p>
-                        <a href="#play-cave" class="play-btn">Play Now</a>
-                    </div>
-                </div>
+                <button id="loginBtn" class="login-btn">Login</button>
+                <p style="text-align: center; margin-top: 15px;">
+                    Don't have an account? <a href="#" id="showRegister">Register</a>
+                </p>
+                <p style="text-align: center; margin-top: 10px; font-size: 12px;">
+                    Admin login: admin / admin123
+                </p>
             </div>
         </div>
 
-        <!-- Frog Pond Jump Game -->
-        <div id="play-frog" class="game-container">
-            <h2>Frog Pond Jump</h2>
-            <div class="game-ui">
-                <div class="bet-controls">
-                    <input type="number" class="bet-input" value="10.00" min="1" step="0.5">
-                    <button class="btn btn-primary">Place Bet</button>
+        <!-- Register Screen -->
+        <div id="registerScreen" class="login-container" style="display: none;">
+            <h2 style="text-align: center; margin-bottom: 20px;">Create Account</h2>
+            <div class="login-form">
+                <div class="form-group">
+                    <label for="regUsername">Username</label>
+                    <input type="text" id="regUsername" placeholder="Choose a username">
                 </div>
-                <div class="multiplier-display">1.00x</div>
-                <div class="game-area" id="frogGameArea">
-                    <div class="frog"></div>
-                    <!-- Lily pads will be generated here -->
+                <div class="form-group">
+                    <label for="regPassword">Password</label>
+                    <input type="password" id="regPassword" placeholder="Choose a password">
                 </div>
-                <div class="controls">
-                    <button class="btn btn-primary">Jump</button>
-                    <button class="btn btn-success">Cash Out</button>
-                    <button class="btn btn-warning">Auto Play</button>
+                <div class="form-group">
+                    <label for="regEmail">Email</label>
+                    <input type="email" id="regEmail" placeholder="Enter your email">
                 </div>
+                <button id="registerBtn" class="login-btn">Register</button>
+                <p style="text-align: center; margin-top: 15px;">
+                    Already have an account? <a href="#" id="showLogin">Login</a>
+                </p>
             </div>
         </div>
 
-        <!-- Rocket Banana Game -->
-        <div id="play-rocket" class="game-container">
-            <h2>Rocket Banana</h2>
-            <div class="game-ui">
-                <div class="bet-controls">
-                    <input type="number" class="bet-input" value="10.00" min="1" step="0.5">
-                    <button class="btn btn-primary">Place Bet</button>
+        <!-- Main App (initially hidden) -->
+        <div id="mainApp" style="display: none;">
+            <header>
+                <div class="header-content">
+                    <div class="logo">Slot<span>Games</span>Arena</div>
+                    <nav>
+                        <ul>
+                            <li><a href="#" class="nav-link" data-section="lobby">Home</a></li>
+                            <li><a href="#" class="nav-link" data-section="games">Games</a></li>
+                            <li><a href="#" class="nav-link" data-section="admin">Admin</a></li>
+                            <li><a href="#" id="logoutBtn">Logout</a></li>
+                        </ul>
+                    </nav>
+                    <div class="user-info">
+                        <div class="balance">Balance: $<span id="userBalance">100.00</span></div>
+                        <button class="btn btn-primary" id="depositBtn">Deposit</button>
+                        <button class="btn btn-warning" id="withdrawBtn">Withdraw</button>
+                    </div>
                 </div>
-                <div class="multiplier-display">1.00x</div>
-                <div class="game-area" id="rocketGameArea">
-                    <div class="rocket"></div>
-                </div>
-                <div class="controls">
-                    <button class="btn btn-primary">Launch</button>
-                    <button class="btn btn-success">Cash Out</button>
-                    <button class="btn btn-warning">Auto Cashout</button>
-                </div>
-            </div>
-        </div>
+            </header>
 
-        <!-- Treasure Cave Run Game -->
-        <div id="play-cave" class="game-container">
-            <h2>Treasure Cave Run</h2>
-            <div class="game-ui">
-                <div class="bet-controls">
-                    <input type="number" class="bet-input" value="10.00" min="1" step="0.5">
-                    <button class="btn btn-primary">Place Bet</button>
-                </div>
-                <div class="multiplier-display">1.00x</div>
-                <div class="game-area" id="caveGameArea">
-                    <div class="miner"></div>
-                    <!-- Gold and obstacles will be generated here -->
-                </div>
-                <div class="controls">
-                    <button class="btn btn-primary">Run</button>
-                    <button class="btn btn-success">Cash Out</button>
-                    <button class="btn btn-warning">Auto Play</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Admin Panel (simplified for frontend demo) -->
-        <div class="admin-panel">
-            <h2 class="section-title">Admin Panel</h2>
-            
-            <div class="admin-section">
-                <h3>Site Statistics</h3>
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-title">Total Users</div>
-                        <div class="stat-value">1,254</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-title">Online Now</div>
-                        <div class="stat-value">87</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-title">Total Deposits</div>
-                        <div class="stat-value">$42,587</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-title">Total Withdrawals</div>
-                        <div class="stat-value">$38,421</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="admin-section">
-                <h3>Game Management</h3>
-                <div class="tab-container">
-                    <div class="tabs">
-                        <div class="tab active" data-tab="rtp">RTP Settings</div>
-                        <div class="tab" data-tab="control">Game Control</div>
-                        <div class="tab" data-tab="users">User Management</div>
-                        <div class="tab" data-tab="finance">Finance</div>
-                    </div>
-
-                    <div class="tab-content active" id="rtp">
-                        <p>Adjust Return to Player percentages for each game:</p>
-                        <div class="form-group">
-                            <label for="frogRtp">Frog Pond Jump RTP (%)</label>
-                            <input type="number" id="frogRtp" value="96.5" step="0.1">
+            <div class="game-lobby" id="lobbySection">
+                <h2 class="section-title">Game Lobby</h2>
+                <div class="games-grid">
+                    <div class="game-card">
+                        <div class="game-image" id="frogGame">
+                            <div class="frog"></div>
+                            <div class="lily-pad" style="left: 150px;"></div>
+                            <div class="lily-pad" style="left: 250px;"></div>
+                            <div class="lily-pad" style="left: 350px;"></div>
                         </div>
-                        <div class="form-group">
-                            <label for="rocketRtp">Rocket Banana RTP (%)</label>
-                            <input type="number" id="rocketRtp" value="95.8" step="0.1">
+                        <div class="game-details">
+                            <h3 class="game-title">Frog Pond Jump</h3>
+                            <p class="game-description">Guide the frog across lily pads. Each pad increases your multiplier, but some may sink!</p>
+                            <a href="#" class="play-btn" data-game="frog">Play Now</a>
                         </div>
-                        <div class="form-group">
-                            <label for="caveRtp">Treasure Cave Run RTP (%)</label>
-                            <input type="number" id="caveRtp" value="97.2" step="0.1">
-                        </div>
-                        <button class="btn btn-primary">Save Settings</button>
                     </div>
 
-                    <div class="tab-content" id="control">
-                        <p>Enable or disable games:</p>
-                        <div class="form-group">
-                            <label>
-                                <input type="checkbox" checked> Frog Pond Jump
-                            </label>
+                    <div class="game-card">
+                        <div class="game-image" id="rocketGame">
+                            <div class="rocket"></div>
                         </div>
-                        <div class="form-group">
-                            <label>
-                                <input type="checkbox" checked> Rocket Banana
-                            </label>
+                        <div class="game-details">
+                            <h3 class="game-title">Rocket Banana</h3>
+                            <p class="game-description">Watch the rocket banana soar! The higher it goes, the bigger your multiplier.</p>
+                            <a href="#" class="play-btn" data-game="rocket">Play Now</a>
                         </div>
-                        <div class="form-group">
-                            <label>
-                                <input type="checkbox" checked> Treasure Cave Run
-                            </label>
-                        </div>
-                        <button class="btn btn-primary">Save Settings</button>
                     </div>
 
-                    <div class="tab-content" id="users">
-                        <p>User management functions would appear here in a full implementation.</p>
+                    <div class="game-card">
+                        <div class="game-image" id="caveGame">
+                            <div class="miner"></div>
+                            <div class="gold" style="left: 200px; top: 100px;"></div>
+                            <div class="gold" style="left: 300px; top: 150px;"></div>
+                        </div>
+                        <div class="game-details">
+                            <h3 class="game-title">Treasure Cave Run</h3>
+                            <p class="game-description">Help the miner collect gold in the cave. Go deeper for higher multipliers!</p>
+                            <a href="#" class="play-btn" data-game="cave">Play Now</a>
+                        </div>
                     </div>
+                </div>
+            </div>
 
-                    <div class="tab-content" id="finance">
-                        <p>Financial overview and transaction management would appear here.</p>
+            <!-- Frog Pond Jump Game -->
+            <div id="frogGameSection" class="game-container" style="display: none;">
+                <h2>Frog Pond Jump</h2>
+                <div class="game-ui">
+                    <div class="bet-controls">
+                        <input type="number" class="bet-input" id="frogBet" value="10.00" min="1" step="0.5">
+                        <button class="btn btn-primary" id="frogBetBtn">Place Bet</button>
+                    </div>
+                    <div class="multiplier-display">1.00x</div>
+                    <div class="game-area" id="frogGameArea">
+                        <div class="frog" id="frogCharacter"></div>
+                        <!-- Lily pads will be generated here -->
+                    </div>
+                    <div class="controls">
+                        <button class="btn btn-primary" id="frogJumpBtn">Jump</button>
+                        <button class="btn btn-success" id="frogCashoutBtn">Cash Out</button>
+                        <button class="btn btn-warning" id="frogAutoBtn">Auto Play</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rocket Banana Game -->
+            <div id="rocketGameSection" class="game-container" style="display: none;">
+                <h2>Rocket Banana</h2>
+                <div class="game-ui">
+                    <div class="bet-controls">
+                        <input type="number" class="bet-input" id="rocketBet" value="10.00" min="1" step="0.5">
+                        <button class="btn btn-primary" id="rocketBetBtn">Place Bet</button>
+                    </div>
+                    <div class="multiplier-display">1.00x</div>
+                    <div class="game-area" id="rocketGameArea">
+                        <div class="rocket" id="rocket"></div>
+                    </div>
+                    <div class="controls">
+                        <button class="btn btn-primary" id="rocketLaunchBtn">Launch</button>
+                        <button class="btn btn-success" id="rocketCashoutBtn">Cash Out</button>
+                        <button class="btn btn-warning" id="rocketAutoBtn">Auto Cashout</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Treasure Cave Run Game -->
+            <div id="caveGameSection" class="game-container" style="display: none;">
+                <h2>Treasure Cave Run</h2>
+                <div class="game-ui">
+                    <div class="bet-controls">
+                        <input type="number" class="bet-input" id="caveBet" value="10.00" min="1" step="0.5">
+                        <button class="btn btn-primary" id="caveBetBtn">Place Bet</button>
+                    </div>
+                    <div class="multiplier-display">1.00x</div>
+                    <div class="game-area" id="caveGameArea">
+                        <div class="miner" id="miner"></div>
+                        <!-- Gold and obstacles will be generated here -->
+                    </div>
+                    <div class="controls">
+                        <button class="btn btn-primary" id="caveRunBtn">Run</button>
+                        <button class="btn btn-success" id="caveCashoutBtn">Cash Out</button>
+                        <button class="btn btn-warning" id="caveAutoBtn">Auto Play</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin Panel -->
+            <div id="adminSection" class="admin-panel" style="display: none;">
+                <h2 class="section-title">Admin Panel</h2>
+                
+                <div class="admin-section">
+                    <h3>Site Statistics</h3>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-title">Total Users</div>
+                            <div class="stat-value">1,254</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-title">Online Now</div>
+                            <div class="stat-value">87</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-title">Total Deposits</div>
+                            <div class="stat-value">$42,587</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-title">Total Withdrawals</div>
+                            <div class="stat-value">$38,421</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-section">
+                    <h3>Game Management</h3>
+                    <div class="tab-container">
+                        <div class="tabs">
+                            <div class="tab active" data-tab="rtp">RTP Settings</div>
+                            <div class="tab" data-tab="control">Game Control</div>
+                            <div class="tab" data-tab="users">User Management</div>
+                            <div class="tab" data-tab="finance">Finance</div>
+                        </div>
+
+                        <div class="tab-content active" id="rtp">
+                            <p>Adjust Return to Player percentages for each game:</p>
+                            <div class="form-group">
+                                <label for="frogRtp">Frog Pond Jump RTP (%)</label>
+                                <input type="number" id="frogRtp" value="96.5" step="0.1">
+                            </div>
+                            <div class="form-group">
+                                <label for="rocketRtp">Rocket Banana RTP (%)</label>
+                                <input type="number" id="rocketRtp" value="95.8" step="0.1">
+                            </div>
+                            <div class="form-group">
+                                <label for="caveRtp">Treasure Cave Run RTP (%)</label>
+                                <input type="number" id="caveRtp" value="97.2" step="0.1">
+                            </div>
+                            <button class="btn btn-primary">Save Settings</button>
+                        </div>
+
+                        <div class="tab-content" id="control">
+                            <p>Enable or disable games:</p>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" checked> Frog Pond Jump
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" checked> Rocket Banana
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" checked> Treasure Cave Run
+                                </label>
+                            </div>
+                            <button class="btn btn-primary">Save Settings</button>
+                        </div>
+
+                        <div class="tab-content" id="users">
+                            <p>User management functions would appear here in a full implementation.</p>
+                        </div>
+
+                        <div class="tab-content" id="finance">
+                            <p>Financial overview and transaction management would appear here.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Deposit Modal -->
-    <div class="modal" id="depositModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Deposit Funds</h3>
-                <span class="close-modal">&times;</span>
+        <!-- Deposit Modal -->
+        <div class="modal" id="depositModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Deposit Funds</h3>
+                    <span class="close-modal">&times;</span>
+                </div>
+                <div class="form-group">
+                    <label for="depositAmount">Amount</label>
+                    <input type="number" id="depositAmount" placeholder="Enter amount">
+                </div>
+                <div class="form-group">
+                    <label for="depositMethod">Payment Method</label>
+                    <select id="depositMethod">
+                        <option value="creditcard">Credit Card</option>
+                        <option value="crypto">Cryptocurrency</option>
+                        <option value="banktransfer">Bank Transfer</option>
+                    </select>
+                </div>
+                <button class="btn btn-success" style="width: 100%;" id="processDeposit">Process Deposit</button>
             </div>
-            <div class="form-group">
-                <label for="depositAmount">Amount</label>
-                <input type="number" id="depositAmount" placeholder="Enter amount">
-            </div>
-            <div class="form-group">
-                <label for="depositMethod">Payment Method</label>
-                <select id="depositMethod">
-                    <option value="creditcard">Credit Card</option>
-                    <option value="crypto">Cryptocurrency</option>
-                    <option value="banktransfer">Bank Transfer</option>
-                </select>
-            </div>
-            <button class="btn btn-success" style="width: 100%;">Process Deposit</button>
         </div>
-    </div>
 
-    <!-- Withdraw Modal -->
-    <div class="modal" id="withdrawModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Withdraw Funds</h3>
-                <span class="close-modal">&times;</span>
+        <!-- Withdraw Modal -->
+        <div class="modal" id="withdrawModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Withdraw Funds</h3>
+                    <span class="close-modal">&times;</span>
+                </div>
+                <div class="form-group">
+                    <label for="withdrawAmount">Amount</label>
+                    <input type="number" id="withdrawAmount" placeholder="Enter amount">
+                </div>
+                <div class="form-group">
+                    <label for="withdrawMethod">Payment Method</label>
+                    <select id="withdrawMethod">
+                        <option value="bank">Bank Account</option>
+                        <option value="crypto">Cryptocurrency</option>
+                        <option value="paypal">PayPal</option>
+                    </select>
+                </div>
+                <button class="btn btn-success" style="width: 100%;" id="processWithdrawal">Request Withdrawal</button>
             </div>
-            <div class="form-group">
-                <label for="withdrawAmount">Amount</label>
-                <input type="number" id="withdrawAmount" placeholder="Enter amount">
-            </div>
-            <div class="form-group">
-                <label for="withdrawMethod">Payment Method</label>
-                <select id="withdrawMethod">
-                    <option value="bank">Bank Account</option>
-                    <option value="crypto">Cryptocurrency</option>
-                    <option value="paypal">PayPal</option>
-                </select>
-            </div>
-            <button class="btn btn-success" style="width: 100%;">Request Withdrawal</button>
         </div>
+
+        <!-- Notification -->
+        <div class="notification" id="notification"></div>
     </div>
 
     <script>
+        // Database simulation using localStorage
+        const DB = {
+            init: function() {
+                if (!localStorage.getItem('users')) {
+                    const users = [
+                        { id: 1, username: 'admin', password: 'admin123', email: 'admin@slotgames.com', balance: 1000, isAdmin: true },
+                        { id: 2, username: 'testuser', password: 'test123', email: 'test@user.com', balance: 500, isAdmin: false }
+                    ];
+                    localStorage.setItem('users', JSON.stringify(users));
+                }
+
+                if (!localStorage.getItem('games')) {
+                    const games = [
+                        { id: 1, name: 'Frog Pond Jump', rtp: 96.5, isActive: true },
+                        { id: 2, name: 'Rocket Banana', rtp: 95.8, isActive: true },
+                        { id: 3, name: 'Treasure Cave Run', rtp: 97.2, isActive: true }
+                    ];
+                    localStorage.setItem('games', JSON.stringify(games));
+                }
+
+                if (!localStorage.getItem('transactions')) {
+                    localStorage.setItem('transactions', JSON.stringify([]));
+                }
+            },
+
+            getUsers: function() {
+                return JSON.parse(localStorage.getItem('users')) || [];
+            },
+
+            getUser: function(username) {
+                const users = this.getUsers();
+                return users.find(user => user.username === username);
+            },
+
+            updateUser: function(user) {
+                const users = this.getUsers();
+                const index = users.findIndex(u => u.id === user.id);
+                if (index !== -1) {
+                    users[index] = user;
+                    localStorage.setItem('users', JSON.stringify(users));
+                }
+            },
+
+            addUser: function(user) {
+                const users = this.getUsers();
+                user.id = users.length > 0 ? Math.max(...users.map(u => u.id)) + 1 : 1;
+                users.push(user);
+                localStorage.setItem('users', JSON.stringify(users));
+                return user;
+            },
+
+            getGames: function() {
+                return JSON.parse(localStorage.getItem('games')) || [];
+            },
+
+            addTransaction: function(transaction) {
+                const transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+                transaction.id = transactions.length > 0 ? Math.max(...transactions.map(t => t.id)) + 1 : 1;
+                transaction.date = new Date().toISOString();
+                transactions.push(transaction);
+                localStorage.setItem('transactions', JSON.stringify(transactions));
+            }
+        };
+
+        // Initialize the database
+        DB.init();
+
+        // Current user session
+        let currentUser = null;
+
+        // Show notification
+        function showNotification(message, isError = false) {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = isError ? 'notification error' : 'notification';
+            notification.style.display = 'block';
+            
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000);
+        }
+
+        // Login functionality
+        document.getElementById('loginBtn').addEventListener('click', function() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (!username || !password) {
+                showNotification('Please enter both username and password', true);
+                return;
+            }
+            
+            const user = DB.getUser(username);
+            
+            if (!user || user.password !== password) {
+                showNotification('Invalid username or password', true);
+                return;
+            }
+            
+            currentUser = user;
+            sessionStorage.setItem('currentUser', JSON.stringify(user));
+            
+            document.getElementById('loginScreen').style.display = 'none';
+            document.getElementById('mainApp').style.display = 'block';
+            document.getElementById('userBalance').textContent = user.balance.toFixed(2);
+            
+            showNotification(`Welcome back, ${user.username}!`);
+        });
+
+        // Register functionality
+        document.getElementById('registerBtn').addEventListener('click', function() {
+            const username = document.getElementById('regUsername').value;
+            const password = document.getElementById('regPassword').value;
+            const email = document.getElementById('regEmail').value;
+            
+            if (!username || !password || !email) {
+                showNotification('Please fill all fields', true);
+                return;
+            }
+            
+            if (DB.getUser(username)) {
+                showNotification('Username already exists', true);
+                return;
+            }
+            
+            const newUser = {
+                username,
+                password,
+                email,
+                balance: 100,
+                isAdmin: false
+            };
+            
+            DB.addUser(newUser);
+            showNotification('Account created successfully! You can now login.');
+            
+            // Switch to login screen
+            document.getElementById('registerScreen').style.display = 'none';
+            document.getElementById('loginScreen').style.display = 'block';
+        });
+
+        // Show/hide login/register screens
+        document.getElementById('showRegister').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('loginScreen').style.display = 'none';
+            document.getElementById('registerScreen').style.display = 'block';
+        });
+
+        document.getElementById('showLogin').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('registerScreen').style.display = 'none';
+            document.getElementById('loginScreen').style.display = 'block';
+        });
+
+        // Check if user is already logged in
+        const savedUser = sessionStorage.getItem('currentUser');
+        if (savedUser) {
+            currentUser = JSON.parse(savedUser);
+            document.getElementById('loginScreen').style.display = 'none';
+            document.getElementById('mainApp').style.display = 'block';
+            document.getElementById('userBalance').textContent = currentUser.balance.toFixed(2);
+        }
+
+        // Logout functionality
+        document.getElementById('logoutBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            currentUser = null;
+            sessionStorage.removeItem('currentUser');
+            document.getElementById('mainApp').style.display = 'none';
+            document.getElementById('loginScreen').style.display = 'block';
+        });
+
+        // Navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const section = this.getAttribute('data-section');
+                
+                // Hide all sections
+                document.querySelectorAll('[id$="Section"]').forEach(sec => {
+                    sec.style.display = 'none';
+                });
+                
+                // Show selected section
+                document.getElementById(section + 'Section').style.display = 'block';
+            });
+        });
+
+        // Game navigation
+        document.querySelectorAll('.play-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const game = this.getAttribute('data-game');
+                
+                // Hide all sections
+                document.querySelectorAll('[id$="Section"]').forEach(sec => {
+                    sec.style.display = 'none';
+                });
+                
+                // Show selected game
+                document.getElementById(game + 'GameSection').style.display = 'block';
+            });
+        });
+
         // Modal functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const depositBtn = document.getElementById('depositBtn');
-            const withdrawBtn = document.getElementById('withdrawBtn');
-            const depositModal = document.getElementById('depositModal');
-            const withdrawModal = document.getElementById('withdrawModal');
-            const closeButtons = document.querySelectorAll('.close-modal');
-            
-            depositBtn.addEventListener('click', function() {
-                depositModal.style.display = 'flex';
-            });
-            
-            withdrawBtn.addEventListener('click', function() {
-                withdrawModal.style.display = 'flex';
-            });
-            
-            closeButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    depositModal.style.display = 'none';
-                    withdrawModal.style.display = 'none';
-                });
-            });
-            
-            // Close modal when clicking outside
-            window.addEventListener('click', function(event) {
-                if (event.target === depositModal) {
-                    depositModal.style.display = 'none';
-                }
-                if (event.target === withdrawModal) {
-                    withdrawModal.style.display = 'none';
-                }
-            });
-            
-            // Tab functionality for admin panel
-            const tabs = document.querySelectorAll('.tab');
-            tabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    const tabName = this.getAttribute('data-tab');
-                    
-                    // Remove active class from all tabs and contents
-                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-                    
-                    // Add active class to current tab and content
-                    this.classList.add('active');
-                    document.getElementById(tabName).classList.add('active');
-                });
-            });
-            
-            // Simple game animations (for demo purposes)
-            animateFrogGame();
-            animateRocketGame();
-            animateCaveGame();
+        document.getElementById('depositBtn').addEventListener('click', function() {
+            document.getElementById('depositModal').style.display = 'flex';
         });
         
+        document.getElementById('withdrawBtn').addEventListener('click', function() {
+            document.getElementById('withdrawModal').style.display = 'flex';
+        });
+        
+        document.querySelectorAll('.close-modal').forEach(button => {
+            button.addEventListener('click', function() {
+                document.getElementById('depositModal').style.display = 'none';
+                document.getElementById('withdrawModal').style.display = 'none';
+            });
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target === document.getElementById('depositModal')) {
+                document.getElementById('depositModal').style.display = 'none';
+            }
+            if (event.target === document.getElementById('withdrawModal')) {
+                document.getElementById('withdrawModal').style.display = 'none';
+            }
+        });
+
+        // Deposit functionality
+        document.getElementById('processDeposit').addEventListener('click', function() {
+            const amount = parseFloat(document.getElementById('depositAmount').value);
+            
+            if (isNaN(amount) || amount <= 0) {
+                showNotification('Please enter a valid amount', true);
+                return;
+            }
+            
+            currentUser.balance += amount;
+            DB.updateUser(currentUser);
+            sessionStorage.setItem('currentUser', JSON.stringify(currentUser));
+            
+            document.getElementById('userBalance').textContent = currentUser.balance.toFixed(2);
+            document.getElementById('depositModal').style.display = 'none';
+            
+            // Record transaction
+            DB.addTransaction({
+                userId: currentUser.id,
+                type: 'deposit',
+                amount: amount,
+                status: 'completed'
+            });
+            
+            showNotification(`Successfully deposited $${amount.toFixed(2)}`);
+        });
+
+        // Withdrawal functionality
+        document.getElementById('processWithdrawal').addEventListener('click', function() {
+            const amount = parseFloat(document.getElementById('withdrawAmount').value);
+            
+            if (isNaN(amount) || amount <= 0) {
+                showNotification('Please enter a valid amount', true);
+                return;
+            }
+            
+            if (amount > currentUser.balance) {
+                showNotification('Insufficient funds', true);
+                return;
+            }
+            
+            currentUser.balance -= amount;
+            DB.updateUser(currentUser);
+            sessionStorage.setItem('currentUser', JSON.stringify(currentUser));
+            
+            document.getElementById('userBalance').textContent = currentUser.balance.toFixed(2);
+            document.getElementById('withdrawModal').style.display = 'none';
+            
+            // Record transaction
+            DB.addTransaction({
+                userId: currentUser.id,
+                type: 'withdrawal',
+                amount: amount,
+                status: 'completed'
+            });
+            
+            showNotification(`Successfully withdrew $${amount.toFixed(2)}`);
+        });
+
+        // Game logic for Frog Pond Jump
+        document.getElementById('frogBetBtn').addEventListener('click', function() {
+            const betAmount = parseFloat(document.getElementById('frogBet').value);
+            
+            if (isNaN(betAmount) || betAmount <= 0) {
+                showNotification('Please enter a valid bet amount', true);
+                return;
+            }
+            
+            if (betAmount > currentUser.balance) {
+                showNotification('Insufficient funds', true);
+                return;
+            }
+            
+            // Deduct bet amount from balance
+            currentUser.balance -= betAmount;
+            DB.updateUser(currentUser);
+            sessionStorage.setItem('currentUser', JSON.stringify(currentUser));
+            document.getElementById('userBalance').textContent = currentUser.balance.toFixed(2);
+            
+            showNotification(`Bet placed: $${betAmount.toFixed(2)}`);
+            
+            // Start the game
+            startFrogGame(betAmount);
+        });
+
+        // Simplified game logic for demonstration
+        function startFrogGame(betAmount) {
+            let multiplier = 1.0;
+            const multiplierDisplay = document.querySelector('#frogGameSection .multiplier-display');
+            
+            // Reset game area
+            const gameArea = document.getElementById('frogGameArea');
+            gameArea.innerHTML = '<div class="frog" id="frogCharacter"></div>';
+            
+            // Create lily pads
+            for (let i = 1; i <= 5; i++) {
+                const lilyPad = document.createElement('div');
+                lilyPad.className = 'lily-pad';
+                lilyPad.style.left = (100 + i * 80) + 'px';
+                gameArea.appendChild(lilyPad);
+            }
+            
+            // Position frog
+            const frog = document.getElementById('frogCharacter');
+            frog.style.left = '50px';
+            
+            // Jump button functionality
+            const jumpBtn = document.getElementById('frogJumpBtn');
+            jumpBtn.onclick = function() {
+                // Random chance of sinking (20%)
+                if (Math.random() < 0.2) {
+                    showNotification('The lily pad sank! Game over.', true);
+                    jumpBtn.onclick = null;
+                    return;
+                }
+                
+                // Increase multiplier
+                multiplier += 0.5;
+                multiplierDisplay.textContent = multiplier.toFixed(2) + 'x';
+                
+                // Move frog
+                const currentLeft = parseInt(frog.style.left);
+                frog.style.left = (currentLeft + 80) + 'px';
+                
+                // Check if reached the end
+                if (currentLeft >= 400) {
+                    showNotification('You made it across!', true);
+                    jumpBtn.onclick = null;
+                    
+                    // Award winnings
+                    const winnings = betAmount * multiplier;
+                    currentUser.balance += winnings;
+                    DB.updateUser(currentUser);
+                    sessionStorage.setItem('currentUser', JSON.stringify(currentUser));
+                    document.getElementById('userBalance').textContent = currentUser.balance.toFixed(2);
+                    
+                    showNotification(`You won $${winnings.toFixed(2)}!`);
+                }
+            };
+            
+            // Cashout button functionality
+            document.getElementById('frogCashoutBtn').onclick = function() {
+                const winnings = betAmount * multiplier;
+                currentUser.balance += winnings;
+                DB.updateUser(currentUser);
+                sessionStorage.setItem('currentUser', JSON.stringify(currentUser));
+                document.getElementById('userBalance').textContent = currentUser.balance.toFixed(2);
+                
+                showNotification(`You cashed out at ${multiplier.toFixed(2)}x and won $${winnings.toFixed(2)}!`);
+                jumpBtn.onclick = null;
+            };
+        }
+
+        // Similar game logic can be implemented for Rocket Banana and Treasure Cave Run
+
+        // Admin panel tabs
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                const tabName = this.getAttribute('data-tab');
+                
+                // Remove active class from all tabs and contents
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                // Add active class to current tab and content
+                this.classList.add('active');
+                document.getElementById(tabName).classList.add('active');
+            });
+        });
+
+        // Simple game animations (for demo purposes)
         function animateFrogGame() {
             const frog = document.querySelector('#frogGame .frog');
             setInterval(() => {
@@ -803,6 +1245,11 @@
                 }, 300);
             }, 1000);
         }
+
+        // Start animations
+        animateFrogGame();
+        animateRocketGame();
+        animateCaveGame();
     </script>
 </body>
 </html>
